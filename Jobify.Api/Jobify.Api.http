@@ -1,0 +1,6 @@
+@Jobify.Api_HostAddress = http://localhost:5036
+
+GET {{Jobify.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

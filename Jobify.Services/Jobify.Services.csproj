@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jobify.Core\Jobify.Core.csproj" />
+    <ProjectReference Include="..\Jobify.Infrastructure\Jobify.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ControllerServices\" />
+    <Folder Include="IControllerServices\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Mapper\" />
+  </ItemGroup>
+
+</Project>
