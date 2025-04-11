@@ -12,9 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ControllerServices\" />
-    <Folder Include="IControllerServices\" />
-    <Folder Include="DTOs\" />
     <Folder Include="Mapper\" />
   </ItemGroup>
 

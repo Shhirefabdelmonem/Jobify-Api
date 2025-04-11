@@ -11,6 +11,7 @@ namespace Jobify.Core.Models
 {
     public class AppUser: IdentityUser
     {
-        
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public List<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
     }
 }

@@ -17,6 +17,7 @@ namespace Jobify.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new EntityConfigration());
+            //modelBuilder.ApplyConfiguration(new RefreshTokenConfigration());
 
             // Other configurations
         }
@@ -26,6 +27,7 @@ namespace Jobify.Infrastructure.Data
         public DbSet<Experience>Experiences { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<UserSkill> UserSkills { get; set; }
-       
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
     }
 }
