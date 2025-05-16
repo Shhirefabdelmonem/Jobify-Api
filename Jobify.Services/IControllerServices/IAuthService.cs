@@ -13,6 +13,6 @@ namespace Jobify.Services.IControllerServices
         Task<ApiResponse> LoginAsync(LogInDTO request);
         Task<ApiResponse> RefreshTokenAsync(RefreshTokenRequestDTO request);
         Task<ApiResponse> RegisterAsync(RegisterDTO request);
-        Task RevokeRefreshTokenAsync(string refreshToken);
+        Task<ApiResponse> RevokeRefreshTokenAsync(string refreshToken);
     }
 }

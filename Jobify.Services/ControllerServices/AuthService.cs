@@ -115,7 +115,11 @@ namespace Jobify.Services.ControllerServices
             var userExists = await _userManager.FindByEmailAsync(request.Username);
             if (userExists != null)
             {
-                throw new Exception("User already exists");
+                return new ApiResponse
+                {
+                    Success = false,
+                    Message = "User already exists"
+                };
             }
             var user = new AppUser
             {
@@ -150,7 +154,7 @@ namespace Jobify.Services.ControllerServices
 
         }
 
-        public async Task RevokeRefreshTokenAsync(string refreshToken)
+        public async Task<ApiResponse> RevokeRefreshTokenAsync(string refreshToken)
         {
             var token = await _unitOfWork.Token.GetByTokenAsync(refreshToken);
             if (token != null && token.IsActive)
@@ -159,6 +163,12 @@ namespace Jobify.Services.ControllerServices
                 await _unitOfWork.Token.UpdateAsync(token);
                 await _unitOfWork.CompleteAsync();
             }
+            return new ApiResponse
+            {
+                Success = true,
+                Message = "Refresh token revoked successfully"
+            };
+
         }
 
         private (string Token, DateTime Expires) GenerateJwtToken(AppUser user)

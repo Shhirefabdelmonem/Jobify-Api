@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jobify.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250411100651_init")]
+    [Migration("20250411163719_init")]
     partial class init
     {
         /// <inheritdoc />

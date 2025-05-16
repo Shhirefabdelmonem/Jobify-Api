@@ -47,8 +47,13 @@ namespace Jobify.Api.Controllers
         [HttpPost("logout")]
         public async Task<IActionResult> LogOut([FromBody] string refreshToken)
         {
-            await _authService.RevokeRefreshTokenAsync(refreshToken);
-            return NoContent();
+           var response= await _authService.RevokeRefreshTokenAsync(refreshToken);
+
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
         }
     }
 }
