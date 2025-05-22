@@ -1,59 +1,49 @@
-﻿using Jobify.Services.DTOs.requests;
-using Jobify.Services.IControllerServices;
-using Microsoft.AspNetCore.Http;
+﻿using Jobify.Services.Features.Auth.Commands.Login;
+using Jobify.Services.Features.Auth.Commands.RefreshToken;
+using Jobify.Services.Features.Auth.Commands.Register;
+using Jobify.Services.Features.Auth.Commands.RevokeToken;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jobify.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthService _authService;
-        public AuthController(IAuthService authService)
-        {
-            _authService = authService;
-        }
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LogInDTO request)
-        {
-            var response = await _authService.LoginAsync(request);
-            if (response.Success)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response);
-        }
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDTO request)
-        {
-            var response = await _authService.RegisterAsync(request);
-            if (response.Success)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response);
-        }
-        [HttpPost("refresh-token")]
-        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequestDTO request)
-        {
-            var response = await _authService.RefreshTokenAsync(request);
-            if (response.Success)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response);
-        }
-        [HttpPost("logout")]
-        public async Task<IActionResult> LogOut([FromBody] string refreshToken)
-        {
-           var response= await _authService.RevokeRefreshTokenAsync(refreshToken);
+        private readonly IMediator _mediator;
 
-            if (response.Success)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response);
+        public AuthController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> RevokeToken([FromBody] RevokeTokenCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
     }
 }
