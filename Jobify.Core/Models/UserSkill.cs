@@ -18,7 +18,8 @@ namespace Jobify.Core.Models
 
         [ForeignKey("UserId")]
         [JsonIgnore]
-        public virtual AppUser User { get; set; }
+        public virtual JobSeeker User { get; set; }
+
 
         [ForeignKey("SkillId")]
         [JsonIgnore]
