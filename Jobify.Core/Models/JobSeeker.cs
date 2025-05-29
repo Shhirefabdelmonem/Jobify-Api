@@ -11,13 +11,12 @@ namespace Jobify.Core.Models
     public class JobSeeker:AppUser
     {
         // Personal Information
-        [Required]
-        [StringLength(50)]
-        public string FirstName { get; set; }
 
-        [Required]
         [StringLength(50)]
-        public string LastName { get; set; }
+        public string? FirstName { get; set; }
+
+        [StringLength(50)]
+        public string? LastName { get; set; }
 
         [StringLength(20)]
         public string? Phone { get; set; }

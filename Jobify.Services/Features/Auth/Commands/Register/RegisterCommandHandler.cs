@@ -36,7 +36,7 @@ namespace Jobify.Services.Features.Auth.Commands.Register
                 };
             }
 
-            var user = new AppUser
+            var user = new JobSeeker
             {
                 UserName = request.Username,
                 Email = request.Username,

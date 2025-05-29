@@ -18,6 +18,7 @@ namespace Jobify.Infrastructure.Presistance.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new EntityConfigration());
+            modelBuilder.ApplyConfiguration(new JobSeekerConfiguration());
             //modelBuilder.ApplyConfiguration(new RefreshTokenConfigration());
 
             // Other configurations

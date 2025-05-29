@@ -15,7 +15,7 @@ namespace Jobify.Infrastructure.Configration
         {
             // Configure the Gpa property with precision and scale
             builder.Property(e => e.Gpa)
-                .HasPrecision(3, 3); // 3 digits in total, 2 after decimal point (e.g., 4.00)
+                .HasPrecision(3, 2); // 3 digits in total, 2 after decimal point (e.g., 4.00)
         }
     }
 }

@@ -56,6 +56,16 @@ namespace Jobify.Services.Features.Profile.Commands.UpdateProfile
                 };
             }
 
+            if (user is not JobSeeker Seeker)
+            {
+                return new ApiResponse
+                {
+                    Success = false,
+                    Message = "User is Forbidden",
+                    StatusCode = 403
+                };  // 403 Forbidden
+            }
+
             // Check if user is a JobSeeker
             var jobSeeker = await _context.JobSeekers
                 .Include(js => js.Educations)
@@ -63,17 +73,7 @@ namespace Jobify.Services.Features.Profile.Commands.UpdateProfile
                 .Include(js => js.Skills)
                 .FirstOrDefaultAsync(js => js.Id == userId, cancellationToken);
 
-            if (jobSeeker == null)
-            {
-                // Create a new JobSeeker if not exists
-                jobSeeker = new JobSeeker
-                {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    Email = request.Email
-                };
-                _context.JobSeekers.Add(jobSeeker);
-            }
+            
 
             // Update personal information
             jobSeeker.FirstName = request.FirstName;

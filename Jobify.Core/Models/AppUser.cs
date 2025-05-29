@@ -13,5 +13,6 @@ namespace Jobify.Core.Models
     {
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public List<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+
     }
 }
