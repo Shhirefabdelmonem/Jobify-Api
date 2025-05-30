@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\recommendation\" />
     <Folder Include="Mapper\" />
   </ItemGroup>
 

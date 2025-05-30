@@ -15,8 +15,9 @@ namespace Jobify.Services.Extension
                 config.RegisterServicesFromAssembly(typeof(ApplicationService).Assembly);
                 config.AddOpenBehavior(typeof(LoggingBehavior<,>));
                 config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+                config.AddOpenBehavior(typeof(PerformanceBehavior<,>));
+                config.AddOpenBehavior(typeof(RetryBehavior<,>));
             });
-
 
             return services;
         }
