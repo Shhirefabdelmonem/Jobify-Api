@@ -1,4 +1,5 @@
-﻿using Jobify.Services.Features.Profile.Commands.UpdateProfile;
+﻿using Jobify.Services.Features.Profile.Commands.GetProfile;
+using Jobify.Services.Features.Profile.Commands.UpdateProfile;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +27,19 @@ namespace Jobify.Api.Controllers
                 return Ok(result);
             }
             return StatusCode(result.StatusCode,result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProfile()
+        {
+            var query = new GetProfileQuery();
+            var result = await _mediator.Send(query);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return StatusCode(result.StatusCode, result);
         }
     }
 }

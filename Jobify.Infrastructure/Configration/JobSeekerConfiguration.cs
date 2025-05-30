@@ -10,7 +10,7 @@ namespace Jobify.Infrastructure.Configration
         {
             // Configure TPT inheritance - this creates a separate table for JobSeeker
             builder.ToTable("JobSeekers");
-            
+
 
         }
     }

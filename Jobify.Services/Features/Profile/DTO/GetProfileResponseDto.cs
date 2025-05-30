@@ -1,29 +1,23 @@
-﻿using Jobify.Core.Models;
-using Jobify.Services.Commons.DTOs.Resoponses;
-using MediatR;
+﻿using Jobify.Services.Features.Profile.Commands.UpdateProfile;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Jobify.Services.Features.Profile.Commands.UpdateProfile
+namespace Jobify.Services.Features.Profile.DTO
 {
-    public class UpdateProfileCommand : IRequest<ApiResponse>
+    public class GetProfileResponseDto
     {
-        // Personal Information
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string? LinkedIn { get; set; }
-        public string? GitHub { get; set; }
-        public string? Portfolio { get; set; }
-
-        // Education Information
+        public string LinkedIn { get; set; }
+        public string GitHub { get; set; }
+        public string Portfolio { get; set; }
         public List<EducationDto> Educations { get; set; } = new List<EducationDto>();
-
-        // Experience Information
         public List<ExperienceDto> Experiences { get; set; } = new List<ExperienceDto>();
-
-        // Skills
         public List<SkillDto> Skills { get; set; } = new List<SkillDto>();
     }
 }
