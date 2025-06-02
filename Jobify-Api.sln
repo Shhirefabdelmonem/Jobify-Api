@@ -5,11 +5,11 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobify.Api", "Jobify.Api\Jobify.Api.csproj", "{79C8D5B2-5160-4AEB-927D-230CF87F7A88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobify.Core", "Jobify.Core\Jobify.Core.csproj", "{5E22E56C-28BD-41DD-9296-6F55794EDFA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobify.Domain", "Jobify.Core\Jobify.Domain.csproj", "{5E22E56C-28BD-41DD-9296-6F55794EDFA0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobify.Infrastructure", "Jobify.Infrastructure\Jobify.Infrastructure.csproj", "{4E5C2C0B-457F-4887-9ED7-45E0A0C4E968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobify.Services", "Jobify.Services\Jobify.Services.csproj", "{0BFA2DA7-B938-4EFD-A900-FAD424E6C710}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobify.Application", "Jobify.Services\Jobify.Application.csproj", "{0BFA2DA7-B938-4EFD-A900-FAD424E6C710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

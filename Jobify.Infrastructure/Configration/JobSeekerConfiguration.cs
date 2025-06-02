@@ -10,8 +10,13 @@ namespace Jobify.Infrastructure.Configration
         {
             // Configure TPT inheritance - this creates a separate table for JobSeeker
             builder.ToTable("JobSeekers");
-
-
+            builder.HasMany(js => js.JobApplications)
+                   .WithOne(ja => ja.JobSeeker)
+                   .HasForeignKey(ja => ja.JobSeekerId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
+
+
     }
+    
 }

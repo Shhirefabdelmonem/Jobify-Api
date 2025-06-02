@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Jobify.Infrastructure\Jobify.Infrastructure.csproj" />
-    <ProjectReference Include="..\Jobify.Services\Jobify.Services.csproj" />
+    <ProjectReference Include="..\Jobify.Services\Jobify.Application.csproj" />
   </ItemGroup>
 
 </Project>

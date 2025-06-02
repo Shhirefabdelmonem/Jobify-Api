@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Jobify.Domain.Models;
 
 namespace Jobify.Core.Models
 {
-    public class JobSeeker:AppUser
+    public class JobSeeker : AppUser
     {
         // Personal Information
 
@@ -37,6 +38,7 @@ namespace Jobify.Core.Models
         public virtual ICollection<Education> Educations { get; set; } = new List<Education>();
         public virtual ICollection<Experience> Experiences { get; set; } = new List<Experience>();
         public virtual ICollection<UserSkill> Skills { get; set; } = new List<UserSkill>();
+        public virtual ICollection<JobApplication> JobApplications { get; set; }= new List<JobApplication>();
 
         // Computed property for full name
         [NotMapped]

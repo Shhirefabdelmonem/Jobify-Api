@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Jobify.Core\Jobify.Core.csproj" />
-    <ProjectReference Include="..\Jobify.Services\Jobify.Services.csproj" />
+    <ProjectReference Include="..\Jobify.Core\Jobify.Domain.csproj" />
+    <ProjectReference Include="..\Jobify.Services\Jobify.Application.csproj" />
   </ItemGroup>
 
 </Project>

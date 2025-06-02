@@ -1,4 +1,5 @@
 ﻿using Jobify.Core.Models;
+using Jobify.Domain.Models;
 using Jobify.Infrastructure.Configration;
 using Jobify.Services.Commons.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Jobify.Infrastructure.Presistance.Data
 {
-    public class ApplicationDbContext: IdentityDbContext<AppUser>, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser>, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,9 +27,10 @@ namespace Jobify.Infrastructure.Presistance.Data
 
         public DbSet<JobSeeker> JobSeekers { get; set; }
         public DbSet<Education> Educations { get; set; }
-        public DbSet<Experience>Experiences { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<UserSkill> UserSkills { get; set; }
+        public DbSet<JobApplication> JobApplications { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     }

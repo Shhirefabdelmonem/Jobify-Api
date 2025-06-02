@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Jobify.Core\Jobify.Core.csproj" />
+    <ProjectReference Include="..\Jobify.Core\Jobify.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using Jobify.Core.Models;
+using Jobify.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Jobify.Services.Commons.Data
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<UserSkill> UserSkills { get; set; }
+        public DbSet<JobApplication> JobApplications { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);

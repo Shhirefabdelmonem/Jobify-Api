@@ -21,7 +21,7 @@ namespace Jobify.Services.Features.Profile.Commands.UpdateProfile
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public UpdateProfileCommandHandler(
-            IApplicationDbContext context, 
+            IApplicationDbContext context,
             UserManager<AppUser> userManager,
             IHttpContextAccessor httpContextAccessor)
         {
