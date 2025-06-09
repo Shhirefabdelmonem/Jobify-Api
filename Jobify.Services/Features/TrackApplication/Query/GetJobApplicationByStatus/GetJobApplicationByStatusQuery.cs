@@ -10,7 +10,7 @@ namespace Jobify.Application.Features.TrackApplication.Query.GetJobApplicationBy
 {
     public class GetJobApplicationByStatusQuery : IRequest<ApiResponse>
     {
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Jobify.Application.Features.TrackApplication.Commands.AddJobApplication;
 using Jobify.Application.Features.TrackApplication.Commands.UpdateJobApplication;
+using Jobify.Application.Features.TrackApplication.Query.GetAllJobApplication;
 using Jobify.Application.Features.TrackApplication.Query.GetJobApplicationByStatus;
 using Jobify.Core.ValueObjects;
 using MediatR;
@@ -40,11 +41,18 @@ namespace Jobify.Api.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> GetJobApplicationsByStatus([FromBody] string status)
+        [HttpGet("all-applications")]
+        public async Task<IActionResult> GetAllJobApplications() // Fixed typo in method name
         {
+            var result = await _mediator.Send(new GetAllJobApplicationQuery());
+            return StatusCode(result.StatusCode, result);
+        }
 
-            var result = await _mediator.Send(new GetJobApplicationByStatusQuery { Status=status});
+        [HttpGet("by-status")]
+        public async Task<IActionResult> GetJobApplicationsByStatus([FromQuery] string? status)
+        {
+            var query = new GetJobApplicationByStatusQuery { Status = status };
+            var result = await _mediator.Send(query);
             return StatusCode(result.StatusCode, result);
         }
 
@@ -61,5 +69,5 @@ namespace Jobify.Api.Controllers
             });
         }
     }
-        
+
 }
